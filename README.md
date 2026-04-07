@@ -79,16 +79,28 @@ The whole training process consists of two stages. The base model `Qwen2.5-VL-3B
 
 ### SFT Stage
 
-We use [ms-swift](https://github.com/modelscope/ms-swift) for supervised fine-tuning. Please refer to the ms-swift documentation for SFT training scripts.
+We use [ms-swift](https://github.com/modelscope/ms-swift) for supervised fine-tuning on the M3²Diagram SFT split:
+```bash
+bash examples/sft.sh
+```
+Please modify `MODEL_PATH`, `DATASET_PATH`, and `OUTPUT_DIR` in `sft.sh` to your local paths.
 
 ### RL Stage (Viva)
 
-We use [EasyR1](https://github.com/hiyouga/EasyR1) for GRPO-based reinforcement learning with the Viva reward mechanism. The training scripts and reward functions are provided under `examples/`:
+We use [EasyR1](https://github.com/hiyouga/EasyR1) for GRPO-based reinforcement learning with the Viva reward mechanism:
+```bash
+bash examples/grpo_omni.sh
+```
+Please modify `MODEL_PATH` and `DATA_DIR` in `grpo_omni.sh` to your local paths. The reward function implements the Viva mechanism: it renders the rollout code into images, then uses a VQA model to answer instance-specific visual questions for fine-grained scoring.
+
+### Scripts Structure
 
 ```
 examples/
-├── grpo_omni.sh                          # GRPO training launch script
-├── config.yaml                           # Training configuration
+├── sft.sh                                # SFT training script (ms-swift)
+├── infer.sh                              # Inference script (ms-swift + vLLM)
+├── grpo_omni.sh                          # GRPO training launch script (EasyR1)
+├── config.yaml                           # RL training configuration
 └── reward_function/
     └── omni_rewards/
         ├── entry_point.py                # Reward computation entry point
@@ -99,16 +111,13 @@ examples/
         └── utils_vqa.py                  # VQA judge API utilities
 ```
 
-To launch RL training:
-```bash
-bash examples/grpo_omni.sh
-```
-
-Please modify `MODEL_PATH` and `DATA_DIR` in `grpo_omni.sh` to your local paths. The reward function implements the Viva mechanism: it renders the rollout code into images, then uses a VQA model to answer instance-specific visual questions for fine-grained scoring.
-
 ## Inference
 
-Please see `inference.py` for details.
+We use [ms-swift](https://github.com/modelscope/ms-swift) with vLLM backend for inference:
+```bash
+bash examples/infer.sh
+```
+Please modify `MODEL_PATH`, `INPUT_FILE`, and `OUTPUT_FILE` in `infer.sh` to your local paths.
 
 ## Results
 
