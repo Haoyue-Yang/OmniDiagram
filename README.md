@@ -18,7 +18,21 @@ This repository is the official implementation of [OmniDiagram: Advancing Unifie
 
 The paradigm of programmable diagram generation is evolving rapidly, playing a crucial role in structured visualization. However, most existing studies are confined to a narrow range of task formulations and language support. In this work, we propose **OmniDiagram**, a unified framework that incorporates diverse diagram code languages and task definitions. To address the challenge of aligning code logic with visual fidelity in Reinforcement Learning (RL), we introduce a novel visual feedback strategy named **Visual Interrogation Verifies All (Viva)**. Unlike brittle syntax-based rules or pixel-level matching, Viva rewards the visual structure of rendered diagrams through a generative approach. Furthermore, we construct **M3²Diagram**, the first large-scale diagram code generation dataset, containing over 196k high-quality instances.
 
-![main](fig/main.png)
+### Task Landscape
+
+OmniDiagram unifies three core tasks — **Diagram-to-Code**, **Text-to-Code**, and **Diagram Editing** — across three widely-used diagrammatic languages: **LaTeX (TikZ)**, **Mermaid**, and **PlantUML**, forming a comprehensive 3×3 task-language matrix.
+
+<p align="center">
+  <img src="Figure/Intro_v2.png" width="450"/>
+</p>
+
+### Method Pipeline
+
+Our framework follows a three-stage pipeline: (1) **Scalable Data Synthesis** via a top-down, scenario-driven approach to construct the M3²Diagram dataset (196k samples); (2) **Supervised Fine-Tuning (SFT)** on Qwen2.5-VL to establish foundational diagram code generation capacity; (3) **Viva-guided Reinforcement Learning**, where instance-specific visual questions are generated offline, and a reward model evaluates the rendered output of rollout code online, providing fine-grained feedback to iteratively improve visual fidelity.
+
+<p align="center">
+  <img src="Figure/Viva_fig3_v4.png" width="800"/>
+</p>
 
 ## Models
 
@@ -84,8 +98,6 @@ Please see `inference.py` for details.
 ## Results
 
 OmniDiagram consistently surpasses competitive open-source baselines across all tasks on M3²Bench and various external diagrammatic benchmarks. Please refer to our paper for detailed performance.
-
-![results](fig/results.png)
 
 ## Contact
 
