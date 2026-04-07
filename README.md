@@ -1,4 +1,4 @@
-# OmniDiagram: Advancing Unified Diagram Code Generation via Visual Interrogation Reward (ACL 2025 Main)
+# OmniDiagram: Advancing Unified Diagram Code Generation via Visual Interrogation Reward (ACL 2026 Findings)
 
 [![arXiv](https://img.shields.io/badge/arXiv-xxxx.xxxxx-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/xxxx.xxxxx) [![🤗 Models (HuggingFace)](https://img.shields.io/badge/Models-HuggingFace-FFD21E.svg?logo=huggingface&logoColor=yellow)](https://huggingface.co/Y36521478Y) [![🤗 Datasets (HuggingFace)](https://img.shields.io/badge/Datasets-HuggingFace-FFD21E.svg?logo=huggingface&logoColor=yellow)](https://huggingface.co/Y36521478Y)
 
@@ -12,7 +12,7 @@ This repository is the official implementation of [OmniDiagram: Advancing Unifie
 
 ## News
 
-**[2025.x.x]** OmniDiagram has been accepted by **ACL 2025 Main**.
+**[2026.4.6]** OmniDiagram has been accepted by **ACL 2026 Findings**.
 
 ## Overview
 
@@ -77,19 +77,34 @@ pip install flash-attn --no-build-isolation
 
 The whole training process consists of two stages. The base model `Qwen2.5-VL-3B-Instruct` or `Qwen2.5-VL-7B-Instruct` should be downloaded first.
 
-For **SFT**, run
-```bash
-bash scripts/train/sft.sh
+### SFT Stage
+
+We use [ms-swift](https://github.com/modelscope/ms-swift) for supervised fine-tuning. Please refer to the ms-swift documentation for SFT training scripts.
+
+### RL Stage (Viva)
+
+We use [EasyR1](https://github.com/hiyouga/EasyR1) for GRPO-based reinforcement learning with the Viva reward mechanism. The training scripts and reward functions are provided under `examples/`:
+
+```
+examples/
+├── grpo_omni.sh                          # GRPO training launch script
+├── config.yaml                           # Training configuration
+└── reward_function/
+    └── omni_rewards/
+        ├── entry_point.py                # Reward computation entry point
+        ├── scorer_dia2code.py            # Diagram-to-Code scorer (render + VQA)
+        ├── scorer_text2code.py           # Text-to-Code scorer (render + VQA)
+        ├── scorer_edit.py                # Diagram Editing scorer (render + VQA)
+        ├── utils_render.py               # Code rendering (LaTeX / Mermaid / PlantUML)
+        └── utils_vqa.py                  # VQA judge API utilities
 ```
 
-For **RL (Viva)**, run
+To launch RL training:
 ```bash
-bash scripts/train/rl_viva.sh
+bash examples/grpo_omni.sh
 ```
 
-Please change the model path to your local path. See the corresponding `.sh` file for details.
-
-Our implementation leverages [ms-swift](https://github.com/modelscope/ms-swift) and [EasyR1](https://github.com/hiyouga/EasyR1).
+Please modify `MODEL_PATH` and `DATA_DIR` in `grpo_omni.sh` to your local paths. The reward function implements the Viva mechanism: it renders the rollout code into images, then uses a VQA model to answer instance-specific visual questions for fine-grained scoring.
 
 ## Inference
 
@@ -107,11 +122,11 @@ For any questions, you can contact [yanghaoyue2024@ia.ac.cn](mailto:yanghaoyue20
 
 If you find this work useful, consider giving this repository a star and citing our paper as follows:
 ```bibtex
-@inproceedings{yang2025omnidiagram,
+@inproceedings{yang2026omnidiagram,
   title={OmniDiagram: Advancing Unified Diagram Code Generation via Visual Interrogation Reward},
   author={Yang, Haoyue and Zhao, Xuanle and Liu, Xuexin and Jiang, Feibang and Zhu, Yao},
-  booktitle={Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (ACL)},
-  year={2025}
+  booktitle={Findings of the Association for Computational Linguistics: ACL 2026},
+  year={2026}
 }
 ```
 
