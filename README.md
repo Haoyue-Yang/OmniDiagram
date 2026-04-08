@@ -22,8 +22,12 @@ The paradigm of programmable diagram generation is evolving rapidly, playing a c
 
 OmniDiagram unifies three core tasks — **Diagram-to-Code**, **Text-to-Code**, and **Diagram Editing** — across three widely-used diagrammatic languages: **LaTeX (TikZ)**, **Mermaid**, and **PlantUML**, forming a comprehensive 3×3 task-language matrix.
 
-<p align="center">
+<!-- <p align="center">
   <img src="Figure/Intro_v2.png" width="450"/>
+</p> -->
+
+<p align="center">
+  <img src="Figure/Intro_v2.png" width="30%"/>
 </p>
 
 ### Method Pipeline
