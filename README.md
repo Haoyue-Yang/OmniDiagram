@@ -1,6 +1,6 @@
 # OmniDiagram: Advancing Unified Diagram Code Generation via Visual Interrogation Reward (ACL 2026 Findings)
 
-[![arXiv](https://img.shields.io/badge/arXiv-xxxx.xxxxx-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/xxxx.xxxxx) [![🤗 Models (HuggingFace)](https://img.shields.io/badge/Models-HuggingFace-FFD21E.svg?logo=huggingface&logoColor=yellow)](https://huggingface.co/Y36521478Y) [![🤗 Datasets (HuggingFace)](https://img.shields.io/badge/Datasets-HuggingFace-FFD21E.svg?logo=huggingface&logoColor=yellow)](https://huggingface.co/Y36521478Y)
+[![arXiv](https://img.shields.io/badge/arXiv-2604.05514-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2604.05514) [![🤗 Models (HuggingFace)](https://img.shields.io/badge/Models-HuggingFace-FFD21E.svg?logo=huggingface&logoColor=yellow)](https://huggingface.co/Y36521478Y) [![🤗 Datasets (HuggingFace)](https://img.shields.io/badge/Datasets-HuggingFace-FFD21E.svg?logo=huggingface&logoColor=yellow)](https://huggingface.co/Y36521478Y)
 
 This repository is the official implementation of [OmniDiagram: Advancing Unified Diagram Code Generation via Visual Interrogation Reward](https://arxiv.org/abs/xxxx.xxxxx).
 
@@ -131,11 +131,14 @@ For any questions, you can contact [yanghaoyue2024@ia.ac.cn](mailto:yanghaoyue20
 
 If you find this work useful, consider giving this repository a star and citing our paper as follows:
 ```bibtex
-@inproceedings{yang2026omnidiagram,
-  title={OmniDiagram: Advancing Unified Diagram Code Generation via Visual Interrogation Reward},
-  author={Yang, Haoyue and Zhao, Xuanle and Liu, Xuexin and Jiang, Feibang and Zhu, Yao},
-  booktitle={Findings of the Association for Computational Linguistics: ACL 2026},
-  year={2026}
+@misc{yang2026omnidiagramadvancingunifieddiagram,
+      title={OmniDiagram: Advancing Unified Diagram Code Generation via Visual Interrogation Reward}, 
+      author={Haoyue Yang and Xuanle Zhao and Xuexin Liu and Feibang Jiang and Yao Zhu},
+      year={2026},
+      eprint={2604.05514},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2604.05514}, 
 }
 ```
 
