@@ -2,7 +2,7 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2604.05514-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2604.05514) [![🤗 Models (HuggingFace)](https://img.shields.io/badge/Models-HuggingFace-FFD21E.svg?logo=huggingface&logoColor=yellow)](https://huggingface.co/Y36521478Y) [![🤗 Datasets (HuggingFace)](https://img.shields.io/badge/Datasets-HuggingFace-FFD21E.svg?logo=huggingface&logoColor=yellow)](https://huggingface.co/Y36521478Y)
 
-This repository is the official implementation of [OmniDiagram: Advancing Unified Diagram Code Generation via Visual Interrogation Reward](https://arxiv.org/abs/xxxx.xxxxx).
+This repository is the official implementation of [OmniDiagram: Advancing Unified Diagram Code Generation via Visual Interrogation Reward](https://arxiv.org/abs/2604.05514).
 
 > OmniDiagram: Advancing Unified Diagram Code Generation via Visual Interrogation Reward
 >
