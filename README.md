@@ -6,7 +6,7 @@ This repository is the official implementation of [OmniDiagram: Advancing Unifie
 
 > OmniDiagram: Advancing Unified Diagram Code Generation via Visual Interrogation Reward
 >
-> Haoyue Yang\*, Xuanle Zhao\*, Xuexin Liu\*, Feibang Jiang, Yao Zhu†
+> Haoyue Yang\*, Xuanle Zhao\*, Xuexin Liu\*, Feibing Jiang, Yao Zhu†
 >
 > Institute of Automation, Chinese Academy of Sciences; University of Chinese Academy of Sciences; Zhejiang University
 
